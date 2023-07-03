@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(isset($_SESSION['id']) && isset($_SESSION['usuario'])){
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +29,7 @@
                 <li><a href="#"><label for="inicio">Inicio</label></a></li>
                 <li><a href="./Registrar/registro.php"><label for="inicio">Registrar Estudiante</label></a></li>
                 <li><a href="./Listado/listado.php"><label for="inicio">Visualizar Listado</label></a></li>
+                <li><a href="cerrar.php"><label for="inicio">Cerra Sesión</label></a></li>
             </ul>
         </div>
         
@@ -30,3 +37,6 @@
 </body>
 
 </html>
+<?php }else{
+    header('location: ./IniciarSesion/login.php');
+} ?>

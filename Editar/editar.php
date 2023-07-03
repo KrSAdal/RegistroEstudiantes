@@ -9,14 +9,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Editar</title>
+    <link rel="stylesheet" href="../Registrar/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 </head>
 
 <body class="yup">
+
+    <?php
+    $id = $_GET['id'];
+
+    ?>
+
     <div class="principal">
         <div class="barralateral">
             <img src="" alt="">
@@ -33,15 +39,20 @@
         </div>
 
         <div class="header">
-            <form action="registrar.php" method="POST">
+            <form action="edit.php" method="POST">
 
+                <div class="mb-3">
+                    <label for="ID" class="form-label">ID</label>
+                    <input type="text" class="form-control" name="id" placeholder="id" value="<?php echo $id; ?>"
+                        readonly>
+                </div>
                 <div class="mb-3">
                     <label for="1nombre" class="form-label">Primer Nombre</label>
                     <input type="text" class="form-control" name="1nombre" placeholder="" required>
                 </div>
                 <div class="mb-3">
                     <label for="2nombre" class="form-label">Segundo Nombre</label>
-                    <input type="text" class="form-control" name="2nombre" placeholder="">
+                    <input type="text" class="form-control" name="2nombre" placeholder="" required>
                 </div>
                 <div class="mb-3">
                     <label for="1apellido" class="form-label">Primer Apellido</label>
@@ -49,11 +60,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="2apellido" class="form-label">Segundo Apellido</label>
-                    <input type="text" class="form-control" name="2apellido" placeholder="">
+                    <input type="text" class="form-control" name="2apellido" placeholder="" required>
                 </div>
                 <div class="mb-3">
                     <label for="telEstudiante" class="form-label">Telefono Estudiante</label>
-                    <input type="number" class="form-control" name="telEstudiante" placeholder="">
+                    <input type="number" class="form-control" name="telEstudiante" placeholder="" required>
                 </div>
                 <div class="mb-3">
                     <label for="telPadre" class="form-label">Telefono Padres</label>
@@ -99,7 +110,7 @@
                 </div>
                 <div class="footer">
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary ">Registrar</button>
+                        <button type="submit" name="" class="btn btn-primary ">Actualizar</button>
                     </div>
                 </div>
             </form>
