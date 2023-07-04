@@ -23,12 +23,13 @@
             <div class="barraoculta">
                 <i class="fa fa-times" aria-hidden="true"></i>
                 <img src="https://pm1.aminoapps.com/8402/a81ad5903e36df22e838e3c27f17e95f09cd3cbar1-1070-1637v2_hq.jpg"
-                    style="width: 50px;" alt=":(">
+                    style="width: 90px;" alt=":(">
             </div>
             <ul>
                 <li><a href="../index.php"><label for="inicio">Inicio</label></a></li>
                 <li><a href="#"><label for="inicio">Registrar Estudiante</label></a></li>
                 <li><a href="../Listado/listado.php"><label for="inicio">Visualizar Listado</label></a></li>
+                <li><a href="../Historial/historial.php"><label for="inicio">Historial de Cambios</label></a></li>
             </ul>
         </div>
 
@@ -110,5 +111,5 @@
 
 </html>
 <?php }else{
-    header('location: ../index  .php');
+    header('location: ../index.php');
 } ?>

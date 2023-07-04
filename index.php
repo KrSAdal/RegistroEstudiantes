@@ -29,6 +29,7 @@
                 <li><a href="#"><label for="inicio">Inicio</label></a></li>
                 <li><a href="./Registrar/registro.php"><label for="inicio">Registrar Estudiante</label></a></li>
                 <li><a href="./Listado/listado.php"><label for="inicio">Visualizar Listado</label></a></li>
+                <li><a href="./Historial/historial.php"><label for="inicio">Historial de Cambios</label></a></li>
                 <li><a href="cerrar.php"><label for="inicio">Cerra Sesión</label></a></li>
             </ul>
         </div>

@@ -1,19 +1,15 @@
 <?php
 session_start();
 include_once('../conexion.php');
-
-if (isset($_POST['usuario']) && isset($_POST['pass'])) {
-
 $server = "localhost";
-$user = "root";
-$pass = "";
-$db = "RegistroEstudiantes";
-$conn = mysqli_connect($server, $user, $pass, $db);
+    $user = "root";
+    $pass = "";
+    $db = "RegistroEstudiantes";
+    $conn = mysqli_connect($server, $user, $pass, $db);
 
-if (!$conn) {
-    die("La conexion fallo: " . mysqli_connect_error());
-} else {
-    $id = $_POST['id'];
+if (isset($_SESSION['id']) && isset($_SESSION['usuario'])) {
+
+    $fk_estudiante = $_POST['id'];
     $nombre1 = $_POST['1nombre'];
     $nombre2 = $_POST['2nombre'];
     $apellido1 = $_POST['1apellido'];
@@ -23,22 +19,25 @@ if (!$conn) {
     $jornada = $_POST['jornada'];
     $grado = $_POST['grado'];
     $carrera = $_POST['carrera'];
+    $fk_adminstracion = $_SESSION['usuario'];
+    $accion = 'Editó un registro';
 
-    $sql = "UPDATE estudiantes SET primernombre = '". $nombre1 ."',segundonombre = '". $nombre2 ."',primerapellido = '". $apellido1 ."',segundoapellido = '". $apellido2 ."',telefono = '". $telEstudiante ."',telefonopadres = '". $telPadre ."',jornada = '". $jornada ."',grado = '". $grado ."',carrera = '". $carrera ."' WHERE id = ". $id ."";
+    $sql2 = "INSERT INTO historial(primernombre, segundonombre, primerapellido, segundoapellido, telefono, telefonopadres, jornada, grado, carrera, fk_estudiante, fk_adminstracion, accion) VALUES('$nombre1', '$nombre2', '$apellido1', '$apellido2', '$telEstudiante', '$telPadre', '$jornada', '$grado', '$carrera', '$fk_estudiante', '$fk_adminstracion', '$accion')";
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: ../Listado/listado.php");
+    if (mysqli_query($conn, $sql2)) {
+        $sql = "UPDATE estudiantes SET primernombre = '" . $nombre1 . "',segundonombre = '" . $nombre2 . "',primerapellido = '" . $apellido1 . "',segundoapellido = '" . $apellido2 . "',telefono = '" . $telEstudiante . "',telefonopadres = '" . $telPadre . "',jornada = '" . $jornada . "',grado = '" . $grado . "',carrera = '" . $carrera . "' WHERE id = " . $fk_estudiante . "";
+
+        if (mysqli_query($conn, $sql)) {
+            header("Location: ../Listado/listado.php");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
     } else {
-        echo "Error: " . mysqli_error($conn);
+        echo "Error al insertar en el historial: " . mysqli_error($conn);
     }
-}
-
-
-
 } else {
-    header('location: registro.php');
+    header('location: ../index.php');
     exit();
 }
 ?>
-
-
