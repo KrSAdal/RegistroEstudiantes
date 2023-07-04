@@ -1,9 +1,9 @@
 <?php
 //CONEXION
 $server = "localhost";
-$user = "root";
-$pass = "";
-$db = "RegistroEstudiantes";
+$user = "id20936441_adal";
+$pass = "Adal6115$";
+$db = "id20936441_localhost";
 $conn = mysqli_connect($server, $user, $pass, $db);
 if(!$conn){
     die("La conexión fallo: " . mysqli_connect_error());

@@ -7,9 +7,9 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['usuario'])) {
 
 
 $server = "localhost";
-$user = "root";
-$pass = "";
-$db = "RegistroEstudiantes";
+$user = "id20936441_adal";
+$pass = "Adal6115$";
+$db = "id20936441_localhost";
 $conn = mysqli_connect($server, $user, $pass, $db);
 
 if (!$conn) {

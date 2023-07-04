@@ -1,9 +1,9 @@
 <?php
 //CONEXION
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db = "RegistroEstudiantes";
+$user = "id20936441_adal";
+$pass = "Adal6115$";
+$db = "id20936441_localhost";
 
 $conexion = new mysqli($host, $user, $pass, $db);
 
